@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roch Apetoh, Software Engineer</title>
+<meta name="description" content="Software engineer. I made PocketChef, Murmur, and AI Reply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+  :root{
+    --paper:#F3EEE3; --ink:#14312F; --marigold:#E9A13B; --sage:#6E8C82; --line:#DCD4C3; --card:#FBF8F1; --live:#3BA55D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Space Grotesk',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  main{max-width:900px;margin:0 auto;padding:48px 24px 64px}
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(243,238,227,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .topnav .inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .topnav .brand{font-weight:700;font-size:17px;text-decoration:none}
+  .topnav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  .topnav a{text-decoration:none;font-weight:500;font-size:15px}
+  .topnav a:hover{color:var(--sage)}
+  section{scroll-margin-top:76px}
+  @media (max-width:560px){.topnav ul{gap:14px}.topnav a{font-size:14px}}
+  a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--marigold);text-decoration-thickness:2px;text-underline-offset:3px}
+  a:hover{color:var(--sage)}
+  a:focus-visible{outline:3px solid var(--marigold);outline-offset:2px;border-radius:2px}
+
+  h1{font-size:clamp(44px,8vw,64px);line-height:1.05;font-weight:700;letter-spacing:-0.01em}
+  .role{margin-top:10px;font-size:19px;font-weight:500}
+  .motto{margin-top:18px;font-size:clamp(22px,4vw,28px);font-weight:700}
+  .motto .stroke{position:relative;white-space:nowrap}
+  .motto .stroke svg{position:absolute;left:0;bottom:-5px;width:100%;height:10px}
+  .intro{margin-top:20px;max-width:60ch}
+  .links{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap}
+  .links a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:500;border:2px solid var(--ink);border-radius:999px;padding:8px 18px}
+  .links a:hover{background:var(--ink);color:var(--paper)}
+
+  section{margin-top:80px}
+  h2{font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--sage);margin-bottom:8px}
+  h2::after{content:"";display:block;width:44px;height:3px;background:var(--marigold);border-radius:2px;margin-top:8px}
+
+  .proj{display:grid;grid-template-columns:250px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid var(--line);align-items:start}
+  .proj:last-child{border-bottom:none}
+  .shot{width:100%;border-radius:12px;border:1px solid var(--line);background:var(--card);display:block}
+  .shot.tall{max-width:180px;justify-self:center}
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .head-row h3{font-size:22px;font-weight:700}
+  .btns{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:500;background:var(--ink);color:var(--paper);border-radius:10px;padding:7px 14px;font-size:14.5px;border:2px solid var(--ink)}
+  .btn:hover{background:var(--sage);border-color:var(--sage);color:var(--paper)}
+  .btn.ghosted{background:transparent;color:var(--ink)}
+  .btn.ghosted:hover{background:var(--ink);color:var(--paper)}
+  .proj p{margin-top:10px;max-width:58ch}
+
+  .chips{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:500;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--live);display:inline-block;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+  @media (prefers-reduced-motion: reduce){.dot{animation:none}}
+  .chip .fa-star{color:var(--marigold);font-size:12px}
+
+  .tech{margin-top:12px;display:flex;gap:7px;flex-wrap:wrap}
+  .tchip{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--paper);background:var(--ink);border-radius:8px;padding:4px 11px}
+  .tchip img{width:15px;height:15px;object-fit:contain}
+
+  .plain li{list-style:none;padding:20px 0;border-bottom:1px solid var(--line)}
+  .plain li:last-child{border-bottom:none}
+  .row-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .when{color:var(--sage);font-size:14px}
+  .plain p{margin-top:6px;max-width:64ch}
+
+  .certgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+  .cert{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px}
+  .cert img{height:64px;width:auto;align-self:flex-start;object-fit:contain}
+  .cert h3{font-size:16.5px;font-weight:700;line-height:1.3}
+  .cert .org{font-size:13.5px;color:var(--sage)}
+  .cert .cid{font-size:12px;color:var(--sage);word-break:break-all}
+  .cert .verify{margin-top:auto;display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500}
+  .minichips{display:flex;gap:6px;flex-wrap:wrap}
+  .mini{font-size:12px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--ink)}
+
+  .edu{display:flex;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+  .edu:last-child{border-bottom:none}
+  .edu img{width:56px;height:56px;object-fit:contain;border-radius:10px;background:#fff;border:1px solid var(--line);padding:6px}
+  .edu .mono{width:56px;height:56px;border-radius:10px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+  .edu div p{font-size:14px;color:var(--sage)}
+
+  footer{margin-top:88px;padding-top:26px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--sage)}
+  footer a{display:inline-flex;align-items:center;gap:8px}
+
+  @media (max-width:660px){
+    .proj{grid-template-columns:1fr}
+    .shot.tall{justify-self:start}
+  }
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Site">
+  <div class="inner">
+    <a class="brand" href="#top">Roch Apetoh</a>
+    <ul>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<main id="top">
+  <header>
+    <h1>Roch Apetoh</h1>
+    <p class="role">Software engineer, 3 years of experience across full-stack, mobile, and AI.</p>
+    <p class="motto">From Problem to
+      <span class="stroke">Solution.
+        <svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 7 Q 30 3, 60 7 T 118 6 T 198 7" fill="none" stroke="#E9A13B" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </p>
+    <p class="intro">
+      I like solving people's problems, and software is how I do it. Sometimes that's an
+      app I build on my own, sometimes a system for a client, sometimes a support ticket
+      from someone who's stuck. The part I care about is the same everywhere: understand
+      the problem, build the fix, and then see it work.
+    </p>
+    <nav class="links" aria-label="Contact links">
+      <a href="https://github.com/rapetoh"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+      <a href="https://www.linkedin.com/in/rochapetoh"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>LinkedIn</a>
+      <a href="mailto:rochapetoh@hotmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Email</a>
+    </nav>
+  </header>
+
+  <section id="products">
+    <h2>Products</h2>
+
+    <article class="proj">
+      <img class="shot" src="assets/pocketchef.jpg" alt="PocketChef app screens">
+      <div>
+        <div class="head-row">
+          <h3>PocketChef</h3>
+          <span class="btns">
+            <a class="btn" href="https://apps.apple.com/us/app/pocketchef-meal-planner/id6757957197"><i class="fa-brands fa-apple" aria-hidden="true"></i>App Store</a>
+            <a class="btn ghosted" href="https://pocketchef.space"><i class="fa-solid fa-globe" aria-hidden="true"></i>Website</a>
+          </span>
+        </div>
+        <p>A meal planning app for iOS. You take a photo of what's in your fridge, or say
+        what you're in the mood for, and it comes back with recipes, a weekly plan, and a
+        grocery list.</p>
+        <div class="chips">
+          <span class="chip"><span class="dot" aria-hidden="true"></span>Live</span>
+          <span class="chip">Plans: Free, Plus, Premium</span>
+          <span class="chip">14-day meal planning</span>
+        </div>
+        <div class="tech">
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" onerror="this.remove()">React Native</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" onerror="this.remove()">TypeScript</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" onerror="this.remove()">Node.js</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/openai/F3EEE3" alt="" onerror="this.remove()">OpenAI</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/revenuecat/F3EEE3" alt="" onerror="this.remove()">RevenueCat</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/cloudinary/F3EEE3" alt="" onerror="this.remove()">Cloudinary</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/render/F3EEE3" alt="" onerror="this.remove()">Render</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img class="shot" src="assets/murmur.jpg" alt="Murmur, voice expense tracker">
+      <div>
+        <div class="head-row">
+          <h3>Murmur</h3>
+          <span class="btns">
+            <a class="btn" href="https://itsmurmur.com"><i class="fa-solid fa-globe" aria-hidden="true"></i>Website</a>
+          </span>
+        </div>
+        <p>An expense tracker you talk to. You say something like "eight dollars at the gas
+        station" and the purchase gets filed, or it picks up your Apple Pay purchases on its
+        own. It never connects to your bank, and the speech never leaves your phone.</p>
+        <div class="chips">
+          <span class="chip"><span class="dot" aria-hidden="true"></span>Live</span>
+          <span class="chip">3 platforms: web, Mac, Windows</span>
+          <span class="chip">4 languages</span>
+          <span class="chip">iOS in App Store review</span>
+        </div>
+        <div class="tech">
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" onerror="this.remove()">React Native</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" onerror="this.remove()">TypeScript</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" onerror="this.remove()">Node.js</span>
+          <span class="tchip"><i class="fa-solid fa-microphone" style="font-size:13px"></i>On-device speech</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/applepay/F3EEE3" alt="" onerror="this.remove()">Apple Pay capture</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img class="shot" src="assets/aireply.jpg" alt="AI Reply extension in Gmail">
+      <div>
+        <div class="head-row">
+          <h3>AI Reply by Roch</h3>
+          <span class="btns">
+            <a class="btn" href="https://chromewebstore.google.com/detail/anmadpigbbdelbdolhkdolgblemgdnep"><i class="fa-brands fa-chrome" aria-hidden="true"></i>Chrome Store</a>
+          </span>
+        </div>
+        <p>A Chrome extension that writes Gmail reply drafts in whatever tone you pick.
+        The backend is Spring Boot with Gemini.</p>
+        <div class="chips">
+          <span class="chip"><span class="dot" aria-hidden="true"></span>Live</span>
+          <span class="chip"><i class="fa-solid fa-star" aria-hidden="true"></i>5.0 rating</span>
+          <span class="chip">Replies in under 3 seconds</span>
+          <span class="chip">~70% less drafting time</span>
+        </div>
+        <div class="tech">
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" onerror="this.remove()">Java</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="" onerror="this.remove()">Spring Boot</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/googlegemini/F3EEE3" alt="" onerror="this.remove()">Gemini API</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/googlechrome/F3EEE3" alt="" onerror="this.remove()">Chrome MV3</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img class="shot" src="assets/smartmate.jpg" alt="SmartMate resume matcher">
+      <div>
+        <div class="head-row">
+          <h3>SmartMate</h3>
+          <span class="btns">
+            <a class="btn" href="https://smartmate.space"><i class="fa-solid fa-globe" aria-hidden="true"></i>Website</a>
+          </span>
+        </div>
+        <p>Takes your resume and a job description, tells you how well they match, and
+        points out what's missing.</p>
+        <div class="chips">
+          <span class="chip"><span class="dot" aria-hidden="true"></span>Live</span>
+        </div>
+        <div class="tech">
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" onerror="this.remove()">React</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" onerror="this.remove()">Node.js</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="" onerror="this.remove()">Express</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" onerror="this.remove()">MongoDB</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/langchain/F3EEE3" alt="" onerror="this.remove()">LangChain</span>
+          <span class="tchip">Cohere</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img class="shot" src="https://opengraph.githubassets.com/1/rapetoh/AI-Marketing-Agent" alt="AI Marketing Agent repository">
+      <div>
+        <div class="head-row">
+          <h3>AI Marketing Agent</h3>
+          <span class="btns">
+            <a class="btn" href="https://github.com/rapetoh/AI-Marketing-Agent"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+          </span>
+        </div>
+        <p>A group of AI agents that put together digital ad creatives, built for the
+        DevFest DC AI Challenge.</p>
+        <div class="chips">
+          <span class="chip"><img src="https://cdn.simpleicons.org/google/14312F" alt="" style="width:13px;height:13px" onerror="this.remove()">Demoed at Google DevFest DC 2025</span>
+        </div>
+        <div class="tech">
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" onerror="this.remove()">Python</span>
+          <span class="tchip"><img src="https://cdn.simpleicons.org/googlecloud/F3EEE3" alt="" onerror="this.remove()">Vertex AI</span>
+          <span class="tchip">Google ADK</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <img class="shot" src="assets/biometric.jpg" alt="Biometric identification system">
+      <div>
+        <div class="head-row">
+          <h3>Biometric Identification System</h3>
+          <span class="btns">
+            <a class="btn" href="https://github.com/rapetoh/Biometric-Identification-Solution"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+          </span>
+        </div>
+        <p>A fingerprint and facial identification system for a fintech client in Lomé.
+        It replaced a manual verification process.</p>
+        <div class="chips">
+          <span class="chip">~90% faster authentication</span>
+          <span class="chip">Deployed in production</span>
+        </div>
+        <div class="tech">
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" onerror="this.remove()">Python</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="" onerror="this.remove()">Flask</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="" onerror="this.remove()">PHP</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="" onerror="this.remove()">Laravel</span>
+          <span class="tchip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" onerror="this.remove()">MySQL</span>
+          <span class="tchip">WebSocket</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="work">
+    <h2>Work</h2>
+    <ul class="plain">
+      <li>
+        <div class="row-head"><strong>IT Technician, The 20</strong><span class="when">Cedar Rapids, 2025 to present</span></div>
+        <p>I diagnose production issues across Windows, macOS, networking, identity
+        (Active Directory and Entra), endpoint security, and SaaS integrations for SMB
+        customers in a managed-service environment. I write runbooks, root-cause analyses,
+        and reproduction steps for the team knowledge base, and I translate non-technical
+        customer reports into reproducible engineering tickets.</p>
+        <div class="chips">
+          <span class="chip">20+ tickets a week</span>
+          <span class="chip">75%+ first-contact resolution</span>
+          <span class="chip">~80% closed within SLA</span>
+        </div>
+      </li>
+      <li>
+        <div class="row-head"><strong>Fullstack Web Developer, SUISCO ITPLEX CONSULT</strong><span class="when">Lomé, 2023 to 2024</span></div>
+        <p>I led development of the biometric identification system above, coded the backend
+        in Python, PHP, and SQL, and integrated it with fingerprint hardware for a fintech
+        deployment.</p>
+        <div class="chips">
+          <span class="chip">~90% faster authentication</span>
+          <span class="chip">Production fintech deployment</span>
+        </div>
+      </li>
+      <li>
+        <div class="row-head"><strong>Flutter Developer, SIB SARL</strong><span class="when">Lomé, internship, 2023</span></div>
+        <p>I built a Flutter application for Windows desktop and mobile with QR code-based
+        visitor check-ins and real-time parking slot tracking.</p>
+        <div class="chips">
+          <span class="chip">Jury rating 4.5/5</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certgrid">
+
+      <div class="cert">
+        <img src="assets/secplus.png" alt="CompTIA Security+ logo">
+        <h3>CompTIA Security+ ce</h3>
+        <span class="org">CompTIA, 2026</span>
+        <span class="cid">ID: 545f5da986c3440a9272d996fa84432b</span>
+        <div class="minichips"><span class="mini">Information Security</span><span class="mini">Network Security</span><span class="mini">Cybersecurity</span></div>
+        <a class="verify" href="https://www.credly.com/badges/d0eef2c9-5e39-4bc9-a27d-dfaf5a040c93"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on Credly</a>
+      </div>
+
+      <div class="cert">
+        <img src="assets/aws.png" alt="AWS Certified Cloud Practitioner badge">
+        <h3>AWS Certified Cloud Practitioner</h3>
+        <span class="org">Amazon Web Services, 2025</span>
+        <span class="cid">ID: ff7853d2eee1474bb05af485160e892e</span>
+        <div class="minichips"><span class="mini">Cloud</span><span class="mini">Networking</span><span class="mini">Security</span></div>
+        <a class="verify" href="https://www.credly.com/badges/b2497e90-582c-4baf-ab54-f411dcd31d5b"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on Credly</a>
+      </div>
+
+      <div class="cert">
+        <img src="assets/meta.png" alt="Meta certificate logo">
+        <h3>Meta Back-End Developer Professional Certificate</h3>
+        <span class="org">Meta, 2025</span>
+        <div class="minichips"><span class="mini">APIs</span><span class="mini">Python</span><span class="mini">Django</span><span class="mini">SQL</span></div>
+        <a class="verify" href="https://www.credly.com/earner/earned/badge/5b2a50f6-bc44-4b04-9175-ee1066b65b7c"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on Credly</a>
+      </div>
+
+      <div class="cert">
+        <img src="assets/meta.png" alt="Meta certificate logo">
+        <h3>Meta Front-End Developer Professional Certificate</h3>
+        <span class="org">Meta, 2025</span>
+        <div class="minichips"><span class="mini">Advanced React</span><span class="mini">UX/UI</span><span class="mini">JavaScript</span></div>
+        <a class="verify" href="https://www.credly.com/badges/b7819663-6439-403b-900d-ff500c1df19a"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on Credly</a>
+      </div>
+
+      <div class="cert">
+        <img src="assets/powerbi.png" alt="Power BI logo">
+        <h3>Microsoft Certified: Power BI Data Analyst</h3>
+        <span class="org">Microsoft, 2025</span>
+        <div class="minichips"><span class="mini">Business Intelligence</span><span class="mini">Data Analysis</span></div>
+        <a class="verify" href="https://learn.microsoft.com/api/credentials/share/en-us/RochRapetoh-7108/681BC40F28CAB6EB?sharingId=B58B611D7BBB5593"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on Microsoft Learn</a>
+      </div>
+
+      <div class="cert">
+        <img src="assets/freecodecamp.png" alt="freeCodeCamp logo">
+        <h3>Back-End Development &amp; APIs</h3>
+        <span class="org">freeCodeCamp, 2023</span>
+        <div class="minichips"><span class="mini">Node.js</span><span class="mini">Express</span><span class="mini">MongoDB</span></div>
+        <a class="verify" href="https://freecodecamp.org/certification/Senyo_Rapetoh/back-end-development-and-apis"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on freeCodeCamp</a>
+      </div>
+
+      <div class="cert">
+        <img src="https://images.credly.com/size/680x680/images/70d71df5-f3dc-4380-9b9d-f22513a70417/CCNAITN__1_.png" alt="Cisco CCNA badge">
+        <h3>CCNA 1: Introduction to Networks</h3>
+        <span class="org">Cisco Networking Academy, 2022</span>
+        <div class="minichips"><span class="mini">Networking</span></div>
+        <a class="verify" href="https://www.credly.com/badges/ec1967ec-67ea-4d82-b27c-34fb080f82db/linked_in_profile"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on Credly</a>
+      </div>
+
+      <div class="cert">
+        <img src="https://images.credly.com/size/680x680/images/f4ccdba9-dd65-4349-baad-8f05df116443/CCNASRWE__1_.png" alt="Cisco CCNA badge">
+        <h3>CCNA 2: Switching, Routing, and Wireless Essentials</h3>
+        <span class="org">Cisco Networking Academy, 2023</span>
+        <div class="minichips"><span class="mini">Networking</span></div>
+        <a class="verify" href="https://www.credly.com/badges/fd64a34a-f672-4a95-a53d-0a0dd6404cb1/linked_in_profile"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on Credly</a>
+      </div>
+
+      <div class="cert">
+        <img src="https://images.credly.com/images/0416ae4f-4e65-4612-ab7b-a7c667f02cdc/image.png" alt="ACT WorkKeys NCRC Gold badge">
+        <h3>National Career Readiness Certificate, Gold Level</h3>
+        <span class="org">ACT WorkKeys, 2024</span>
+        <div class="minichips"><span class="mini">Problem Solving</span><span class="mini">Applied Math</span></div>
+        <a class="verify" href="https://myworkkeys.act.org/mwk/emCertDetails.do?event=go&realm=17740116&certId=8QZW74HN0G11"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verify on ACT</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu">
+      <img src="assets/umgc.png" alt="University of Maryland Global Campus seal">
+      <div>
+        <strong>B.S. Computer Science, University of Maryland Global Campus</strong>
+        <p>2026</p>
+      </div>
+    </div>
+    <div class="edu">
+      <img src="assets/iai.png" alt="IAI-Togo logo">
+      <div>
+        <strong>B.S. Software Engineering, IAI-Togo</strong>
+        <p>2024, valedictorian, 3.82 GPA</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <span>Roch Apetoh</span>
+    <a href="mailto:rochapetoh@hotmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i>rochapetoh@hotmail.com</a>
+  </footer>
+</main>
+</body>
+</html>
